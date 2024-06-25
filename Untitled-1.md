@@ -1,0 +1,36 @@
+```
+└── 📁big-ticket-next-js
+    └── .gitignore
+    └── 📁components
+        └── 📁Footer
+            └── Footer.module.css
+            └── index.js
+        └── 📁Header
+            └── Header.module.css
+            └── index.js
+        └── 📁Index
+            └── index.js
+        └── 📁New
+            └── index.js
+    └── LICENSE
+    └── out.js
+    └── package-lock.json
+    └── package.json
+    └── 📁pages
+        └── index.js
+        └── _app.js
+    └── 📁public
+        └── 📁icons
+            └── icon16.png
+            └── icon192.png
+            └── icon32.png
+            └── icon48.png
+        └── inject.js
+        └── manifest.json
+    └── README.md
+    └── Screen1.jpg
+    └── Screen2.jpg
+    └── 📁styles
+        └── globals.css
+        └── Pages.module.css
+```
