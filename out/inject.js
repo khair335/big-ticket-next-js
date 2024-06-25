@@ -1,47 +1,40 @@
-// public/inject.js
-function createButton() {
+// inject.js
+(() => {
+  // Create and style the button
   const button = document.createElement("button");
   button.innerText = "Open Card";
-  button.id = "myExtensionButton";
-  button.style.position = "fixed";
-  button.style.top = "10px";
-  button.style.right = "10px";
-  button.style.zIndex = "9999";
-  button.style.backgroundColor = "#4CAF50";
-  button.style.color = "white";
-  button.style.border = "none";
-  button.style.padding = "10px";
-  button.style.borderRadius = "5px";
-  button.style.cursor = "pointer";
-
-  button.onclick = () => {
-    const card = document.createElement("div");
-    card.style.position = "fixed";
-    card.style.top = "50px";
-    card.style.right = "10px";
-    card.style.zIndex = "10000";
-    card.style.width = "300px";
-    card.style.backgroundColor = "white";
-    card.style.border = "1px solid #ddd";
-    card.style.boxShadow = "0 0 5px rgba(0,0,0,0.2)";
-    card.style.padding = "10px";
-
-    const text = document.createElement("p");
-    text.innerText = "This is some static text in the card.";
-    card.appendChild(text);
-
-    const closeBtn = document.createElement("button");
-    closeBtn.innerText = "Close";
-    closeBtn.onclick = () => card.remove();
-    card.appendChild(closeBtn);
-
-    document.body.appendChild(card);
-  };
-
+  button.id = "open-card-button";
   document.body.appendChild(button);
-}
 
-// Check if the button already exists to avoid duplicates
-if (!document.getElementById("myExtensionButton")) {
-  createButton();
-}
+  // Add CSS styles
+  const style = document.createElement("style");
+  style.innerHTML = `
+      #open-card-button {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 9998;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      #open-card-button:hover {
+        background-color: #0056b3;
+      }
+    `;
+  document.head.appendChild(style);
+
+  // Change button text on hover
+  button.addEventListener("mouseenter", () => {
+    button.innerText = "Save to Big Ticket";
+  });
+
+  // Revert button text when mouse leaves
+  button.addEventListener("mouseleave", () => {
+    button.innerText = "Open Card";
+  });
+})();
